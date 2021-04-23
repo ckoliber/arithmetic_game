@@ -1,0 +1,28 @@
+$def with (QUIT)
+
+<html>
+    <head>
+        <title>Arithmetic Game</title>
+        <link rel="stylesheet" href="/static/style.css" />
+        <script src="/static/jquery-2.1.4.min.js"></script>
+        <script src="/static/game.js"></script>
+    </head>
+<body>
+    <div id="error"></div>
+    <div id="instruction">
+        <p>
+            Try to answer the following questions correctly and quickly.
+            Press the button to proceed and to send input
+            from the text field that will appear. You can also press 'Enter'
+            to send input from the text field.
+            You can quit and show your score by typing '$(QUIT)' into the field.
+        </p>
+    </div>
+    <div id="expression"><p></p></div>
+    <div id="score"></div>
+    <div id="next">
+        <input type="text" hidden="true"/>
+        <button type="button">Next</button>
+    </div>
+</body>
+</html>
