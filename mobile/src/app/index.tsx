@@ -11,6 +11,11 @@ import { BackHandler, AppState, LogBox, Alert } from "react-native";
 import { SessionContextProvider, useSession } from "./context";
 
 /**
+ * Splash Provider
+ */
+import Splash from "react-native-splash-screen";
+
+/**
  * Query Provider
  */
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -74,6 +79,11 @@ const Component = () => {
          * Disable timer warning
          */
         LogBox.ignoreLogs(["Setting a timer", "Require cycle"]);
+
+        /**
+         * Hide splash screen
+         */
+        Splash.hide();
 
         /**
          * Back button handler
