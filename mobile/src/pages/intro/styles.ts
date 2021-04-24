@@ -7,7 +7,7 @@ export const useStyles = (props: Props) => {
     const theme = useTheme();
 
     return StyleSheet.create({
-        background: {
+        root: {
             flex: 1,
             flexDirection: "column",
             justifyContent: "space-around",

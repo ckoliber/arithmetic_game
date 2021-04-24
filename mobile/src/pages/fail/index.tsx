@@ -9,44 +9,20 @@ const Component: React.FC<Props> = (props) => {
     const classes = useStyles(props);
 
     return (
-        <View
-            style={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: 8,
-            }}
-        >
-            <View
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
+        <View style={classes.root}>
+            <View style={classes.image}>
                 <Image
                     source={require("../../../assets/images/cancel.png")}
-                    style={{
-                        width: 200,
-                        height: 200,
-                        margin: 16,
-                    }}
+                    style={classes.imageView}
                 />
-                <Title style={{ fontSize: 30 }}>Fail!</Title>
+                <Title style={classes.imageCaption}>Fail!</Title>
             </View>
-            <Subheading style={{ fontWeight: "bold", textAlign: "center" }}>
+            <Subheading style={classes.message}>
                 {props.route.params?.expression}
                 {"\n"}
                 {props.route.params?.error}
             </Subheading>
-            <Paragraph
-                style={{
-                    textAlign: "center",
-                }}
-            >
+            <Paragraph style={classes.score}>
                 {props.route.params?.score}
             </Paragraph>
             <Button

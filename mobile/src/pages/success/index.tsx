@@ -9,36 +9,16 @@ const Component: React.FC<Props> = (props) => {
     const classes = useStyles(props);
 
     return (
-        <View
-            style={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: 8,
-            }}
-        >
+        <View style={classes.root}>
             <View></View>
-            <View
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
+            <View style={classes.image}>
                 <Image
                     source={require("../../../assets/images/checked.png")}
-                    style={{
-                        width: 200,
-                        height: 200,
-                        margin: 16,
-                    }}
+                    style={classes.imageView}
                 />
-                <Title style={{ fontSize: 30 }}>Success!</Title>
+                <Title style={classes.imageCaption}>Success!</Title>
             </View>
-            <Subheading style={{ fontWeight: "bold", textAlign: "center" }}>
+            <Subheading style={classes.message}>
                 {props.route.params?.expression}
             </Subheading>
             <Button

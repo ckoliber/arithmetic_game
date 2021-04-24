@@ -17,23 +17,33 @@ export const useStyles = (props: Props) => {
             justifyContent: "center",
             alignItems: "center",
         },
-        empty: {
-            color: "grey",
-            alignSelf: "center",
-            paddingVertical: "5%",
+        root: {
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "center",
+        },
+        message: {
+            fontWeight: "bold",
         },
         expression: {
+            fontSize: 30,
+        },
+        form: {
+            width: "100%",
+            display: "flex",
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            paddingHorizontal: 30,
-            paddingVertical: 20,
-            fontSize: 64,
+            padding: 8,
         },
-        answer: {
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
+        formInput: {
+            flexGrow: 1,
+        },
+        formSubmit: {
+            flexGrow: 0,
+            marginLeft: 8,
         },
     });
 };

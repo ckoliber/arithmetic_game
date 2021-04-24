@@ -10,7 +10,6 @@ import {
     Title,
     FAB,
 } from "react-native-paper";
-import { useFocusEffect } from "@react-navigation/native";
 import { useQueryClient, useQuery } from "react-query";
 import { useForm } from "react-hook-form";
 import { stringify } from "query-string";
@@ -62,10 +61,6 @@ const Component: React.FC<Props> = (props) => {
         }
     );
 
-    useFocusEffect(() => {
-        // client.invalidateQueries("game");
-    });
-
     if (isIdle || isLoading || isFetching) {
         return (
             <View style={classes.loading}>
@@ -87,56 +82,22 @@ const Component: React.FC<Props> = (props) => {
     console.log(JSON.stringify(data, undefined, 4));
 
     return (
-        <View
-            style={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-            }}
-        >
+        <View style={classes.root}>
             {data && (
                 <>
-                    <View>
-                        <Paragraph
-                            style={{
-                                fontWeight: "bold",
-                            }}
-                        >
-                            {data.error}
-                        </Paragraph>
-                    </View>
-                    <View>
-                        <Title style={{ fontSize: 30 }}>
-                            {data.expression}
-                        </Title>
-                    </View>
-                    <View
-                        style={{
-                            width: "100%",
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            padding: 8,
-                        }}
-                    >
+                    <Paragraph style={classes.message}>{data.error}</Paragraph>
+                    <Title style={classes.expression}>{data.expression}</Title>
+                    <View style={classes.form}>
                         <NumberField
-                            style={{
-                                flexGrow: 1,
-                            }}
+                            style={classes.formInput}
                             control={form.control}
-                            name="text"
                             label="Answer"
+                            name="text"
                             dense
                         />
 
                         <FAB
-                            style={{
-                                flexGrow: 0,
-                                marginLeft: 8,
-                            }}
+                            style={classes.formSubmit}
                             icon="send"
                             onPress={form.handleSubmit((data) =>
                                 setQueryFilter(data)
