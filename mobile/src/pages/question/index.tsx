@@ -28,9 +28,7 @@ const Component: React.FC<Props> = (props) => {
     const { isIdle, isLoading, isFetching, error, data } = useQuery(
         ["game", queryFilter],
         async () => {
-            console.log("REQUESTING");
-
-            const response = await fetch(`http://e3a7d3f9481d.ngrok.io/game`, {
+            const response = await fetch(`${API_SERVER}/game`, {
                 method: "POST",
                 headers: {
                     "Content-Type":
@@ -78,8 +76,6 @@ const Component: React.FC<Props> = (props) => {
             </View>
         );
     }
-
-    console.log(JSON.stringify(data, undefined, 4));
 
     return (
         <View style={classes.root}>
