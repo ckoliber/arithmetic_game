@@ -17,7 +17,7 @@ const theme = (dark: boolean): any => ({
         ...(!dark && NavigationDefaultTheme.colors),
         ...(dark && PaperDarkTheme.colors),
         ...(dark && NavigationDarkTheme.colors),
-        primary: "#286da8",
+        primary: "#22bce0",
         accent: "#cd5360",
     },
 });
