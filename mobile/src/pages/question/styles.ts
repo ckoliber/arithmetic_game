@@ -7,6 +7,11 @@ export const useStyles = (props: Props) => {
     const theme = useTheme();
 
     return StyleSheet.create({
+        loading: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+        },
         error: {
             flex: 1,
             justifyContent: "center",
@@ -16,6 +21,19 @@ export const useStyles = (props: Props) => {
             color: "grey",
             alignSelf: "center",
             paddingVertical: "5%",
+        },
+        expression: {
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingHorizontal: 30,
+            paddingVertical: 20,
+            fontSize: 64,
+        },
+        answer: {
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
         },
     });
 };

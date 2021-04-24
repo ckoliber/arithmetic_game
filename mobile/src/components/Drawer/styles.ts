@@ -14,14 +14,14 @@ export const useStyles = (props: Props) => {
             alignItems: "center",
             paddingHorizontal: 5,
             paddingVertical: 20,
-            backgroundColor: "#286da8",
+            backgroundColor: props.theme.colors.primary,
         },
         logo: {
             width: 110,
             height: 100,
         },
         title: {
-            color: "white",
+            color: "#ffffff",
         },
     });
 };

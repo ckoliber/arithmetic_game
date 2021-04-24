@@ -3,6 +3,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import { useTheme } from "react-native-paper";
 import { useSession } from "~/app/context";
 
 /**
@@ -10,8 +11,8 @@ import { useSession } from "~/app/context";
  */
 import Intro from "~/pages/intro";
 import Question from "~/pages/question";
-// import Success from "~/pages/success";
-// import Fail from "~/pages/fail";
+import Success from "~/pages/success";
+import Fail from "~/pages/fail";
 
 import AppbarLayout from "~/components/Appbar";
 import DrawerLayout from "~/components/Drawer";
@@ -22,21 +23,20 @@ const StackQuestion = createStackNavigator();
 
 const QuestionNavigator = () => {
     return (
-        <StackQuestion.Navigator>
+        <StackQuestion.Navigator initialRouteName="question">
             <StackQuestion.Screen
-                name="root"
+                name="question"
                 component={Question}
                 options={{
                     header: AppbarLayout,
                     title: "Question",
                 }}
             />
-            {/* <Stack.Screen
+            <Stack.Screen
                 name="success"
                 component={Success}
                 options={{
                     header: AppbarLayout,
-                    headerBackTitle: "true",
                     title: "Success",
                 }}
             />
@@ -45,15 +45,15 @@ const QuestionNavigator = () => {
                 component={Fail}
                 options={{
                     header: AppbarLayout,
-                    headerBackTitle: "true",
                     title: "Fail",
                 }}
-            /> */}
+            />
         </StackQuestion.Navigator>
     );
 };
 
 const DrawerNavigator = () => {
+    const theme = useTheme();
     const [session, setSession] = useSession();
 
     return (
@@ -61,6 +61,7 @@ const DrawerNavigator = () => {
             drawerContent={(props) => (
                 <DrawerLayout
                     {...props}
+                    theme={theme}
                     session={session}
                     setSession={setSession}
                 />
@@ -73,7 +74,7 @@ const DrawerNavigator = () => {
 
 const Component: React.FC<{}> = (props) => {
     return (
-        <Stack.Navigator initialRouteName={"intro"}>
+        <Stack.Navigator initialRouteName="intro">
             <Stack.Screen
                 name="intro"
                 component={Intro}
